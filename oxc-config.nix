@@ -96,6 +96,9 @@
       "oxc.enable.oxlint" = true;
       "oxc.enable.oxfmt" = true;
       "oxc.configPath" = ".oxlintrc.json";
+      "oxc.path.oxfmt" = ".devenv/profile/bin/oxfmt";
+      "oxc.path.oxlint" = ".devenv/profile/bin/oxlint";
+      "oxc.path.tsgolint" = ".devenv/profile/bin/tsgolint";
 
       # typescript
       "js/ts.experimental.useTsgo" = true;
