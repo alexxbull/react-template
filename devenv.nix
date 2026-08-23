@@ -26,6 +26,7 @@ in
   };
 
   packages = with pkgs; [
+    git
     nixfmt-rs
     oxfmt
     oxlint
