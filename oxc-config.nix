@@ -21,7 +21,6 @@
         "oxc"
         "promise"
         "react"
-        "react-perf"
         "typescript"
         "unicorn"
       ];
@@ -90,6 +89,9 @@
       # editor
       "editor.formatOnSave" = true;
       "editor.defaultFormatter" = "oxc.oxc-vscode";
+      "editor.codeActionsOnSave" = {
+          "source.organizeImports" = "always";
+      };
 
       #oxc 
       "oxc.enable" = true;
@@ -102,6 +104,12 @@
 
       # typescript
       "js/ts.experimental.useTsgo" = true;
+      "js/ts.preferences.importModuleSpecifier" = "shortest";
+
+      # typescript react
+      "[typescriptreact]" = {
+        "editor.defaultFormatter" = "oxc.oxc-vscode";
+      };
     };
   };
 }
