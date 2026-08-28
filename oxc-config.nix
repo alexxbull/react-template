@@ -46,42 +46,11 @@
     # Vite does not work with a symlinked vite.config.ts so save this file in a temp location
     # and create the local vite.config.ts file later in a shell environment by copying the temp file
     ".tmp/vite.config.ts".text = ''
-      import { defineConfig } from "vite";
       import react from "@vitejs/plugin-react";
-      import { transform } from "oxc-transform";
-
-      function rustReactCompilerOnlyPlugin() {
-        return {
-          name: "vite-plugin-oxc-react-compiler",
-          enforce: "pre" as const,
-
-          // Only apply React Compiler's transform
-          async transform(code: string, id: string) {
-            if (!/\.[jt]sx$/.test(id) || id.includes("node_modules")) {
-              return null;
-            }
-
-            try {
-              const result = await transform(id, code, {
-                reactCompiler: {
-                  target: "19",
-                },
-              });
-
-              return {
-                code: result.code,
-                map: result.map,
-              };
-            } catch (err) {
-              console.error(`[OXC React Compiler Error]:`, err);
-              return null;
-            }
-          },
-        };
-      }
+      import { defineConfig } from "vite";
 
       export default defineConfig({
-        plugins: [rustReactCompilerOnlyPlugin(), react({ include: /\.(js|jsx|ts|tsx)$/ })],
+        plugins: [react({ compiler: true })],
       });
     '';
 

@@ -2,6 +2,11 @@
 .devenv/
 .tmp/
 
+## Nix generated files
+.oxlintrc.json
+.vscode/
+tmp/
+
 
 # Logs
 logs
