@@ -6,17 +6,14 @@
   inputs,
   ...
 }:
-let
-  unstable = import inputs.nixpkgs-unstable { system = pkgs.stdenv.system; };
-in
 {
-  imports = [ ./oxc-config.nix ]; # setup oxlint env with react compiler (rust) for vite and vscode
+  imports = [ ./oxc-config.nix ]; # setup oxlint, vite, and vscode env
 
   # https://devenv.sh/languages/
   languages = {
     javascript = {
       enable = true;
-      package = unstable.nodejs_26;
+      package = pkgs.nodejs-slim_26;
       nodejs.enable = true;
       pnpm = {
         enable = true;
@@ -31,8 +28,6 @@ in
     oxfmt
     oxlint
     tsgolint
-    unstable.typescript
-    unstable.typescript-go
   ];
 
   files.".vscode/extensions.json".json = {
