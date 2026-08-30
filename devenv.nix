@@ -6,14 +6,28 @@
   inputs,
   ...
 }:
+let
+  isX86Mac = pkgs.stdenv.system == "x86_64-darwin";
+
+  # Use 26.05 darwin repo if system is x86 mac
+  # otherwise use the standard pkgs repo
+  currentPkgs = if pkgs.stdenv.system == "x86_64-darwin" then
+    import pkgs.path {
+      system = pkgs.stdenv.system;
+    }
+  else
+    import inputs.nixpkgs-latest {
+      system = pkgs.stdenv.system;
+    };
+in
 {
-  imports = [ ./oxc-config.nix ]; # setup oxlint, vite, and vscode env
+  imports = [ ./oxc-config.nix ]; # setup oxlint env with react compiler (rust) for vite and vscode
 
   # https://devenv.sh/languages/
   languages = {
     javascript = {
       enable = true;
-      package = pkgs.nodejs-slim_26;
+      package = currentPkgs.nodejs-slim_26;
       nodejs.enable = true;
       pnpm = {
         enable = true;
@@ -22,7 +36,7 @@
     };
   };
 
-  packages = with pkgs; [
+  packages = with currentPkgs; [
     git
     nixfmt-rs
     oxfmt

@@ -1,8 +1,10 @@
 # See https://devenv.sh/reference/yaml-options/
+allow_unfree: true
 inputs:
   git-hooks:
     url: github:cachix/git-hooks.nix
   nixpkgs:
+    # use last devenv pkgs to support x86 darwin (mac) by default
+    url: github:cachix/devenv-nixpkgs/b18ed243a522eee0561518b2eb284900a9e6120d
+  nixpkgs-latest:
     url: github:cachix/devenv-nixpkgs/rolling
-  nixpkgs-unstable:
-    url: github:NixOS/nixpkgs/nixpkgs-unstable
