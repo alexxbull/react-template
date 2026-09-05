@@ -76,11 +76,11 @@ in
       before = [ "devenv:enterShell" ];
     };
 
-    # Create vite.config.ts if it does not exist
+    # Overwrite/create vite.config.ts
     # using .tmp/vite.config.ts as a template
     "init:vite-config" = {
       exec = ''
-        if [ ! -f vite.config.ts ]; then 
+        if [ -f .tmp/vite.config.ts ]; then 
           cp .tmp/vite.config.ts vite.config.ts
           chmod +w vite.config.ts
           echo "Created missing file: vite.config.ts"
