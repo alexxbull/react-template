@@ -6,7 +6,8 @@
 .oxlintrc.json
 .vscode/
 tmp/
-
+vite.config.ts
+tsconfig.json
 
 # Logs
 logs

@@ -1,4 +1,1 @@
-{
-  "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
-}
+/nix/store/jjfh6f4n814hn2k53k4i40b0hkpar408-tsconfig.json
