@@ -1,11 +1,10 @@
-# Template for React + React Compiler (rust) + Typescript (7.0) + tsgo
+# Template for React + React Compiler (rust) + Typescript 7.0
 
 Template repo using nix + devenv to set up a React development environment with the following:
 
 - React
 - React Compiler (rust version)
-- TypesSript 7.0 (supports tsgo compiler)
-- typescript-go (typescript go compiler)
+- TypesSript 7.0
 - oxc + oxlint + oxfmt + tsgolint
 - pnpm
 - Nodejs
@@ -35,4 +34,4 @@ Install the required software linked in [Requirements](#requirements), clone the
 
 # Config files
 
-[oxc-config.nix](oxc-config.nix) creates [.oxlintrc.json](.oxlintrc.json), [vite.config.ts](vite.config.ts), and [.vscode/settings.json](.vscode/settings.json). If you want to edit these files, you should edit their configuration in `oxc-config.nix` and not the files directly. Changes to `.oxlintrc.json` and `.vscode/settings.json` will automatically apply when you reload your dev environment but `vite.config.ts` must be deleted prior to reloading your dev environment for the new changes to apply.
+[oxc-config.nix](oxc-config.nix) creates [.oxlintrc.json](.oxlintrc.json), [vite.config.ts](vite.config.ts), [tsconfig.json](tsconfig.json), and [.vscode/settings.json](.vscode/settings.json). If you want to edit these files, you should edit their configuration in `oxc-config.nix` and not the files directly. Changes to `.oxlintrc.json` and `.vscode/settings.json` will automatically apply when you reload your dev environment but `vite.config.ts` must be deleted prior to reloading your dev environment for the new changes to apply.
